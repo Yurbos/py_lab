@@ -17,8 +17,8 @@ def test_con(test_string):
     try:
         db_test = create_engine(test_string)
         db_test.connect()
-    except Exception:
-        print("Could not connect to server")
+    except Exception as e:
+        print(e)
         return 1
     else:
         print("All right, we here!")
