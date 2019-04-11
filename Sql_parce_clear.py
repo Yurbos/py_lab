@@ -1,8 +1,6 @@
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy import text
-from sqlalchemy import MetaData
-metadata = MetaData()
 
 db_type = "postgres"
 db_server = "127.0.0.1"
