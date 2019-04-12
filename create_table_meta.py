@@ -32,27 +32,27 @@ if test_con(db_string) == 1:
 print("stay here!")
 
 
-dept = Table('DEPT', metadata,
-    Column('DEPTNO', NUMERIC(4), primary_key=True),
-    Column('DNAME', VARCHAR(14)),
-    Column('LOC', VARCHAR(13),)
+dept = Table('dept', metadata,
+    Column('deptno', NUMERIC(4), primary_key=True, comment="код департамента"),
+    Column('dname', VARCHAR(14), comment="название департамента"),
+    Column('loc', VARCHAR(13), comment="местонахождение")
              )
 
-emp = Table('EMP', metadata,
-    Column('EMPNO', NUMERIC(4), primary_key=True),
-    Column('ENAME', VARCHAR(10)),
-    Column('JOB', VARCHAR(9)),
-    Column('MGR', NUMERIC(4)),
-    Column('HIREDATE', DATE),
-    Column('SAL', NUMERIC(7,2)),
-    Column('COMM', NUMERIC(7,2)),
-    Column('DEPTNO', NUMERIC(2), ForeignKey("DEPT.DEPTNO")),
+emp = Table('emp', metadata,
+    Column('empno', NUMERIC(4), primary_key=True, comment="код сотрудника"),
+    Column('ename', VARCHAR(10), comment="имя сотрудника"),
+    Column('job', VARCHAR(9), comment="должность"),
+    Column('mgr', NUMERIC(4), comment="руководитель"),
+    Column('hiredate', DATE, comment="дата устройства на работу"),
+    Column('sal', NUMERIC(7,2), comment="зарплата"),
+    Column('comm', NUMERIC(7,2), comment="премия"),
+    Column('deptno', NUMERIC(2), ForeignKey("dept.deptno"), comment="код департамента"),
              )
 
-salgrade = Table('SALGRADE', metadata,
-    Column('GRADE', NUMERIC),
-    Column('LOSAL', NUMERIC),
-    Column('HISAL', NUMERIC)
+salgrade = Table('salgrade', metadata,
+    Column('grade', NUMERIC),
+    Column('losal', NUMERIC),
+    Column('hisal', NUMERIC)
              )
 
 
